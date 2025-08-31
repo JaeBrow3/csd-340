@@ -1,0 +1,72 @@
+/*
+  Author: James Brown
+  File: Brown_Mod4_2.css
+  Assignment: 4.2 - Build a Web Page Exercise - Part 4
+*/
+
+/* Main container: 3-column grid */
+#container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0; /* let borders act as grid lines without spacing gaps */
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 16px;
+}
+
+/* Image gallery: use children in the grid */
+#image-gallery {
+    grid-column: 1 / -1;
+    margin-top: 10%;
+    display: contents;
+}
+
+/* Gallery items: add borders = grid lines */
+.gallery-item {
+    border: 1px solid rgba(0, 0, 0, 0.4);
+    padding: 8px;
+    box-sizing: border-box;
+}
+
+/* Center the H1 */
+h1 {
+    text-align: center;
+    color: rgba(28, 73, 170, 0.9);
+    margin-top: 0.5rem;
+    grid-column: 1 / -1;
+}
+
+/* Center the H3 (titles for each image) */
+h3 {
+    text-align: center;
+    color: rgba(170, 73, 28, 0.9);
+    margin: 0.5rem 0;
+}
+
+/* Center figure contents */
+figure {
+    text-align: center;
+    margin: 0;
+}
+
+/* Figcaption styling */
+figcaption {
+    font-style: italic;
+    font-size: 0.75em;
+    color: rgba(28, 130, 73, 0.9);
+    margin-top: 0.25rem;
+}
+
+/* Responsive images */
+img {
+    max-width: 100%;
+    height: auto;
+    display: inline-block;
+}
+
+/* Bottom link aligned right */
+.bottom-link {
+    grid-column: 1 / -1;
+    text-align: right;
+    margin-top: 2rem;
+}
