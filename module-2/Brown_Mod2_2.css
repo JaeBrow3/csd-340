@@ -1,0 +1,61 @@
+/* Brown_Mod2_2.css */
+
+/* Base font sizing */
+html,
+body {
+  font-size: 16px;
+}
+
+/* Headings */
+h1 {
+  font-weight: 700;
+  text-transform: uppercase;
+  text-align: center;
+}
+
+h2 {
+  font-weight: 500;
+  text-align: left;
+  padding-top: 15px;
+}
+
+/* Paragraphs */
+p {
+  font-weight: 400;
+  line-height: 1.4em;
+}
+
+/* Special paragraph classes */
+.intro {
+  /* applies only to the first paragraph you assign this class to */
+  text-indent: 2em;
+}
+
+.sentence {
+  font-style: italic;
+}
+
+/* Address block */
+address {
+  text-align: center;
+  font-style: normal; /* keep the address upright unless you want it italic */
+}
+
+/* Website URL styles inside the address */
+address a {
+  font-weight: bold;
+  font-size: 1.25em;
+  color: #4F3674;
+  text-decoration: none;
+}
+
+/* Hover and visited states for the website link */
+address a:hover {
+  text-decoration: underline;
+  background-color: #D6A800;
+}
+
+address a:visited {
+  /* your choice — subtle shift to a deeper purple */
+  color: #3b2756;
+}
