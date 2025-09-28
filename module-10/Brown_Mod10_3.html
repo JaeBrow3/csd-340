@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<!--
+  Author: James Brown
+  File: Brown_Mod10_3.html
+  Assignment: 10.3 – JavaScript - Part 2
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>CSD 340 Web Development with HTML and CSS</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      margin: 40px;
+      background-color: #f5f5f5;
+    }
+    h1 {
+      margin-bottom: 10px;
+    }
+    p {
+      margin-bottom: 20px;
+      color: #555;
+    }
+    img {
+      max-width: 400px;
+      height: auto;
+      margin: 15px 0;
+      border: 2px solid #333;
+    }
+    button {
+      margin: 5px;
+      padding: 10px 15px;
+      font-size: 1rem;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <h1>Assignment 10.3: JavaScript - Part 2</h1>
+  <p>Click a thumbnail to alter the image</p>
+
+  <!-- Main image -->
+  <img id="mainImage" src="images/image_001.png" alt="Default image">
+
+  <br>
+
+  <!-- Thumbnails -->
+  <img src="images/image_001.png" alt="Thumbnail 1" width="100" onclick="swapImage('images/image_001.png')">
+  <img src="images/image_002.png" alt="Thumbnail 2" width="100" onclick="swapImage('images/image_002.png')">
+
+  <br><br>
+
+  <!-- Effect buttons -->
+  <button onclick="applyFilter('grayscale(100%)')">Grayscale</button>
+  <button onclick="applyFilter('invert(100%)')">Invert</button>
+  <button onclick="resetFilter()">Reset</button>
+
+  <script>
+    function swapImage(src) {
+      document.getElementById('mainImage').src = src;
+      resetFilter(); 
+    }
+
+    function applyFilter(filterValue) {
+      document.getElementById('mainImage').style.filter = filterValue;
+    }
+
+    function resetFilter() {
+      document.getElementById('mainImage').style.filter = "none";
+    }
+  </script>
+</body>
+</html>
