@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<!--
+  Author: James Brown
+  File: Brown_Mod11_2.html
+  Assignment: 11.2 – JavaScript - Part 3
+-->
+
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>CSD 340 Web Development with HTML and CSS</title>
+</head>
+<body>
+
+  <h1>Assignment 11.2: JavaScript - Part 3</h1>
+  <p>
+    This is an interactive To Do List. Type in your first item in the text box, then click Add. 
+    Click the Display button to see current items in the list. 
+    Click on Delete Entry if you'd like to remove a specific entry by its number.
+  </p>
+
+  <label for="itemInput"><b>Enter an item:</b></label><br>
+  <input type="text" id="itemInput" placeholder="Type something..."><br><br>
+
+  <button onclick="addItem()">Add</button>
+  <button onclick="deleteItem()">Delete Entry</button>
+  <button onclick="displayItems()">Display</button>
+
+  <h3>Current List:</h3>
+  <div id="output"></div>
+
+  <script>
+    const items = [];
+
+    function addItem() {
+      const input = document.getElementById('itemInput');
+      const value = input.value.trim();
+
+      if (value === "") {
+        alert("Please enter a non-empty value to add.");
+        input.focus();
+        return;
+      }
+
+      items.push(value);
+      alert('Added "' + value + '" as item ' + items.length + '.');
+      input.value = "";
+      input.focus();
+    }
+
+    function deleteItem() {
+      if (items.length === 0) {
+        alert("Nothing to delete — the list is empty.");
+        return;
+      }
+
+      const indexStr = prompt("Enter the number of the item to delete (1 to " + items.length + "):");
+      if (indexStr === null) return; 
+      const index = parseInt(indexStr);
+
+      if (isNaN(index) || index < 1 || index > items.length) {
+        alert("Invalid number. Please enter a value between 1 and " + items.length + ".");
+        return;
+      }
+
+      const removed = items.splice(index - 1, 1);
+      alert('Deleted entry "' + removed[0] + '" at item ' + index + '.');
+      displayItems();
+    }
+
+    function displayItems() {
+      const output = document.getElementById('output');
+
+      if (items.length === 0) {
+        output.innerHTML = "<i>(No items to display.)</i>";
+        return;
+      }
+
+      let listHTML = "<ol>";
+      for (let i = 0; i < items.length; i++) {
+        listHTML += "<li>" + escapeHtml(items[i]) + "</li>";
+      }
+      listHTML += "</ol>";
+
+      output.innerHTML = listHTML;
+    }
+
+    function escapeHtml(str) {
+      return str
+        .replace(/&/g, "&amp;")
+        .replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;")
+        .replace(/"/g, "&quot;")
+        .replace(/'/g, "&#39;");
+    }
+  </script>
+
+</body>
+</html>
