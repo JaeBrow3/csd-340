@@ -1,0 +1,159 @@
+<!--
+  Author: James Brown
+  File: Brown_Mod12_2.html
+  Assignment: 12.2 - JavaScript - Part 4
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>CSD 340 Web Development with HTML and CSS</title>
+  <style>
+    body {
+      font-family: 'Times New Roman', Times, serif;
+      margin: 20px;
+      color: black;
+    }
+
+    header {
+      text-align: center;
+      padding: 20px;
+    }
+
+    h1 {
+      font-weight: 400;
+      margin: 0;
+    }
+
+    #container {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      margin-top: 20px;
+    }
+
+    section {
+      border-radius: 10px;
+      padding: 15px;
+      color: black;
+    }
+
+    .books-section {
+      width: 45%;
+      border: 1px solid red;
+    }
+
+    .learned-section {
+      border: 2px dotted red;
+      display: inline-block;
+      width: 40%;
+      max-width: 40%;
+    }
+
+    h3 {
+      font-weight: 400;
+      text-decoration: none;
+      color: black;
+      margin-top: 0;
+      margin-bottom: 10px;
+    }
+
+    .books-section h3 {
+      text-align: left;
+    }
+
+    button {
+      margin-right: 10px;
+      margin-bottom: 10px;
+      padding: 8px 12px;
+      background-color: white;
+      border: 1px solid black;
+      cursor: pointer;
+      font-family: 'Times New Roman', Times, serif;
+      border-radius: 5px;
+      color: black;
+    }
+
+    button:hover {
+      background-color: white;
+    }
+
+    .divider {
+      border-bottom: 2px solid black;
+      margin-bottom: 10px;
+    }
+
+    ol {
+      margin: 0;
+      padding-left: 20px;
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <h1>Assignment 12.2: JavaScript - Part 4</h1>
+  </header>
+
+  <div id="container">
+    <section class="books-section">
+      <h3>Top 10 Favorite Books</h3>
+      <button onclick="displayTopToBottom()">Top to Bottom</button>
+      <button onclick="displayBottomToTop()">Bottom to Top</button>
+
+      <div class="divider"></div>
+
+      <ol id="bookList"></ol>
+    </section>
+
+    <section class="learned-section">
+      <h3>5 Things I’ve Learned Since the Course Started</h3>
+      <ol>
+        <li>How to write clean, organized HTML structure</li>
+        <li>How CSS controls the presentation of content</li>
+        <li>How JavaScript makes web pages interactive</li>
+        <li>How to use GitHub for version control and hosting</li>
+        <li>How to debug and test web pages effectively</li>
+      </ol>
+    </section>
+  </div>
+
+  <script>
+    const books = [
+      "The Great Gatsby",
+      "Rich Dad Poor Dad",
+      "To Kill a Mockingbird",
+      "Manifesting Abundance",
+      "The Hobbit",
+      "Pride and Prejudice",
+      "Moby-Dick",
+      "Star Wars",
+      "War and Peace",
+      "Harry Potter and the Sorcerer’s Stone"
+    ];
+
+    function displayTopToBottom() {
+      const list = document.getElementById("bookList");
+      list.innerHTML = "";
+      for (let i = 0; i < books.length; i++) {
+        const li = document.createElement("li");
+        li.textContent = books[i];
+        list.appendChild(li);
+      }
+    }
+
+    function displayBottomToTop() {
+      const list = document.getElementById("bookList");
+      list.innerHTML = "";
+      for (let i = books.length - 1; i >= 0; i--) {
+        const li = document.createElement("li");
+        li.textContent = books[i];
+        list.appendChild(li);
+      }
+    }
+
+    displayTopToBottom();
+  </script>
+</body>
+</html>
